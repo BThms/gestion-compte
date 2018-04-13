@@ -1,8 +1,8 @@
 "use strict";
 
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
-
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { Actions } from 'react-native-router-flux';
 
 class DisplayAccountInfo extends Component {
     constructor(props) {
@@ -15,18 +15,31 @@ class DisplayAccountInfo extends Component {
     render() {
         return (
             <View style={styles.main}>
-                <Text>
-                    Compte CIC
-                </Text>
-                <Text>
-                    M. Enculé De Tarace
-                </Text>
-                <Text>
-                    CIC
-                </Text>
-                <Text style={styles.money}>
-                    10.67€
-                </Text>
+                <TouchableOpacity 
+                    style={styles.infoAccountButton} 
+                    onPress={Actions.lastTransactions}
+                >
+                    <View>
+                        <Text>
+                            Compte CIC
+                        </Text>
+                        <Text>
+                            M. John SMITH
+                        </Text>
+                        <Text>
+                            CIC
+                        </Text>
+                    </View>
+                    <View>
+                        <Image 
+                            source={require('../Images/info.png')}
+                            style={styles.image}
+                        />
+                        <Text style={styles.money}>
+                            10.67€
+                        </Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -35,15 +48,24 @@ class DisplayAccountInfo extends Component {
 
 const styles = StyleSheet.create({
     main: {
-        backgroundColor: "pink",
+        backgroundColor: "rgba(107, 243, 225, 0.5)",
         padding: 15,
-        borderRadius: 15,
-        top: 20,
-        right: 10,
-        left: 10
+        borderRadius: 7,
+        marginBottom: 25,
+        elevation: 1.5
     },
     money: {
-        textAlign: "right"
+        textAlign: "right",
+        fontSize: 30
+    },
+    image: {
+        height: 30,
+        width: 30,
+        marginLeft: 135,
+        marginBottom: 50
+    },
+    infoAccountButton: {
+        flexDirection: "row"
     }
 })
 

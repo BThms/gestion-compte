@@ -1,8 +1,9 @@
 "use strict";
 
-import React, { Component } from "react";
-import { View, Text } from "react-native";
-import DisplayAccountInfo from "../Components/DisplayAccountInfo";
+import React, { Component } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import DisplayAccountInfo from '../Components/DisplayAccountInfo';
+import LastTransactions from '../Components/LastTransactions';
 
 class Home extends Component {
     constructor(props) {
@@ -14,13 +15,19 @@ class Home extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.home}>
                 <DisplayAccountInfo/>
+                <LastTransactions/>
             </View>
             
         );
     }
 }
 
+const styles = StyleSheet.create({
+    home: {
+        margin: 45
+    }
+})
 
 export default Home;
